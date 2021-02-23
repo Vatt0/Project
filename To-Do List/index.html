@@ -1,0 +1,45 @@
+<!<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>To-Do List</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/11f0d85fa7.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1>To-Do List</h1>
+        <div class="wrapper">
+            <div class="full-box">
+                <div class="search-box">
+                    <input type="text" class="txt" placeholder="TO DO" id="taskInput">
+                    <button class="btn">ADD</button>
+                </div>
+                <div class="do-list">
+                    <ol id="mylist"></ol>
+                </div>
+            </div>
+        </div>
+        <script>
+$(function() {
+    $(".btn").on("click", function() {
+        var val = $("input").val();
+        if(val !== '') {
+            var elem = $("<ol></ol>").text(val);
+            $(elem).append("<button class='rem'>              X</button>");
+            $("#mylist").append(elem);
+            $("input").val("");
+            $(".rem").on("click", function() {
+                $(this).parent().remove();
+            });
+        }
+    });
+});
+          </script>
+    </body>
+</html>
